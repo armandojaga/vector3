@@ -1,1 +1,2 @@
-# vector3
+# Vector 3
+Create a vector 3 class for homework
