@@ -18,7 +18,7 @@ namespace UPC {
 		Vec3(T x, T y, T z);
 		~Vec3() = default;
 
-		Vec3 Normalize() const;
+		Vec3 Normalized() const;
 		T distance_to(const Vec3& other) const;
 		T dot_product(const Vec3& other) const;
 		Vec3 cross_product(const Vec3& other) const;

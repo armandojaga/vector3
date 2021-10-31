@@ -14,8 +14,8 @@ int main()
 
 	cout << "Copy constructor: " << c << endl;
 
-	Vec3<float> normalized = a.Normalize();
-	cout << "Normalize: " << a << " => " << normalized << endl;
+	Vec3<float> normalized = a.Normalized();
+	cout << "Normalized: " << a << " => " << normalized << endl;
 
 	float distance = a.distance_to(b);
 	cout << "Distance to: " << a << " , " << b << " = " << distance << endl;
@@ -27,7 +27,7 @@ int main()
 	cout << "Cross product: " << a << " x " << b << " = " << cross << endl;
 
 	float angle = a.angle_between(b);
-	cout << "Angle between: " << a << " , " << b << " = " << angle << endl;
+	cout << "Angle between (radians): " << a << " , " << b << " = " << angle << endl;
 
 	Vec3<float> s = a + b;
 	cout << "Adding vectors: " << a << " + " << b << " = " << s << endl;

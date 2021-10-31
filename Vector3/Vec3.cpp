@@ -6,7 +6,7 @@ namespace UPC {
 	template <typename T> requires Number<T>
 	Vec3<T>::Vec3()
 	{
-		x = y = z = 0;
+		x = y = z = T(0);
 	}
 
 	template <typename T> requires Number<T>
@@ -20,14 +20,15 @@ namespace UPC {
 	}
 
 	template <typename T> requires Number<T>
-	Vec3<T> Vec3<T>::Normalize() const
+	Vec3<T> Vec3<T>::Normalized() const
 	{
-		const T length = Length();
+		const T length = 1 / Length();
 		Vec3 normalized;
 
-		normalized.x = x / length;
-		normalized.y = y / length;
-		normalized.z = z / length;
+		//use multiplication instead
+		normalized.x = x * length;
+		normalized.y = y * length;
+		normalized.z = z * length;
 
 		return normalized;
 	}
@@ -59,7 +60,8 @@ namespace UPC {
 	template <typename T> requires Number<T>
 	T Vec3<T>::angle_between(const Vec3& other) const
 	{
-		return acos(dot_product(other) / (Length() * other.Length())) * 180 / std::numbers::pi;
+		//return in radians
+		return acos(dot_product(other) / (Length() * other.Length()));
 	}
 
 	template <typename T> requires Number<T>
@@ -74,18 +76,7 @@ namespace UPC {
 		return sqrt(x * x + y * y + z * z);
 	}
 
-	template class Vec3<char>;
-	template class Vec3<unsigned char>;
-	template class Vec3<short int>;
-	template class Vec3<unsigned short int>;
-	template class Vec3<int>;
-	template class Vec3<unsigned int>;
-	template class Vec3<long int>;
-	template class Vec3<unsigned long int>;
-	template class Vec3<long long int>;
-	template class Vec3<unsigned long long int>;
 	template class Vec3<float>;
 	template class Vec3<double>;
-	template class Vec3<long double>;
 }
 
